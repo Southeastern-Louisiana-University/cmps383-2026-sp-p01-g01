@@ -68,13 +68,25 @@ public class LocationsController : ControllerBase
         {
             return BadRequest("Name is too long.");
         }
+        if (location.Name.Length < 1)
+        {
+            return BadRequest("Name is too short.");
+        }
         if (string.IsNullOrWhiteSpace(location.Address))
         {
             return BadRequest("Address cannot be empty.");
         }
+        if (location.Address.Length < 3)
+        {
+            return BadRequest("Address is too short.");
+        }
         if (location.TableCount < 1)    
         {
             return BadRequest("Table count must be at least 1.");
+        }
+        if (location.TableCount > 100)    
+        {
+            return BadRequest("Table count must not exceed 100.");
         }
 
 
