@@ -63,6 +63,7 @@ public class LocationsController : ControllerBase
         {
             return BadRequest("Name cannot be empty.");
         }
+
         if (location.Name.Length > 100)
         {
             return BadRequest("Name is too long.");
